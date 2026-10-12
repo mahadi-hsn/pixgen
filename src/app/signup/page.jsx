@@ -1,6 +1,6 @@
 "use client";
 import { authClient } from "@/lib/auth-client";
-import { Check } from "@gravity-ui/icons";
+import { Check, LogoGooglePlay } from "@gravity-ui/icons";
 import {
   Button,
   Card,
@@ -32,6 +32,12 @@ export default function SignUpPage() {
         router.push("/signin")
     }
 };
+
+const handleGoogle = async () =>{
+    const data = await authClient.signIn.social({
+    provider: "google",
+  });
+}
 
   return (
     <Card className="border mx-auto w-125 py-10 mt-5">
@@ -102,6 +108,10 @@ export default function SignUpPage() {
           <Button type="reset" variant="secondary">
             Reset
           </Button>
+        </div>
+        <p className="text-center text-2xl">Or</p>
+        <div className="flex justify-center">
+            <Button variant="primary" onClick={handleGoogle}> <LogoGooglePlay></LogoGooglePlay> Sign up with Google</Button>
         </div>
       </Form>
     </Card>
