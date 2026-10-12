@@ -1,6 +1,7 @@
 import { CircleFill } from "@gravity-ui/icons";
 import { Button, Card, Chip } from "@heroui/react";
 import Image from "next/image";
+import Link from "next/link";
 import React from "react";
 
 const PhotoCard = ({ photo }) => {
@@ -35,9 +36,11 @@ const PhotoCard = ({ photo }) => {
             <div className="text-sm font-medium text-black">Available soon</div>
             <div className="text-xs text-black/60">Get notified</div>
           </div>
+          <Link href={`/all-photos/${photo.id}`}>
           <Button className="bg-white text-black" size="sm" variant="tertiary">
-            Notify me
+            View Details
           </Button>
+          </Link>
         </Card.Footer>
       </Card>
     </div>
