@@ -11,10 +11,11 @@ import {
   Label,
   TextField,
 } from "@heroui/react";
+import { Icon } from "@iconify/react";
 import { useRouter } from "next/navigation";
 
 export default function SignUpPage() {
-    const router = useRouter()
+  const router = useRouter();
   const onSubmit = async (e) => {
     e.preventDefault();
     const name = e.target.name.value;
@@ -23,21 +24,21 @@ export default function SignUpPage() {
     const image = e.target.image.value;
 
     const { data, error } = await authClient.signUp.email({
-        name,
-        email,
-        password,
-        image,
+      name,
+      email,
+      password,
+      image,
     });
-    if(!error){
-        router.push("/signin")
+    if (!error) {
+      router.push("/signin");
     }
-};
+  };
 
-const handleGoogle = async () =>{
+  const handleGoogle = async () => {
     const data = await authClient.signIn.social({
-    provider: "google",
-  });
-}
+      provider: "google",
+    });
+  };
 
   return (
     <Card className="border mx-auto w-125 py-10 mt-5">
@@ -111,7 +112,10 @@ const handleGoogle = async () =>{
         </div>
         <p className="text-center text-2xl">Or</p>
         <div className="flex justify-center">
-            <Button variant="primary" onClick={handleGoogle}> <LogoGooglePlay></LogoGooglePlay> Sign up with Google</Button>
+          <Button onClick={handleGoogle} className="w-full" variant="tertiary">
+            <Icon icon="devicon:google" />
+            Sign up with Google
+          </Button>{" "}
         </div>
       </Form>
     </Card>

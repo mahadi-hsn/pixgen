@@ -5,7 +5,6 @@ import Link from "next/link";
 import React from "react";
 
 const PhotoCard = ({ photo }) => {
-  console.log(photo);
   return (
     <div>
       <Card className="col-span-12 min-h-50 overflow-hidden rounded-3xl lg:col-span-6">
