@@ -40,7 +40,7 @@ const Navbar = () => {
             <Link href={"/pricing"}>Pricing</Link>
           </li>
           <li>
-            <Link href={"/profile"}>Profile</Link>
+            <Link href={"/update-profile"}>Profile</Link>
           </li>
         </ul>
 

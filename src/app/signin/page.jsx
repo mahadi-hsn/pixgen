@@ -11,23 +11,28 @@ import {
   Label,
   TextField,
 } from "@heroui/react";
+import { Icon } from "@iconify/react";
 
 export default function SignUpPage() {
   const onSubmit = async (e) => {
     e.preventDefault();
     const email = e.target.email.value;
     const password = e.target.password.value;
-    const {data , error} = await authClient.signIn.email({
-        email,
-        password,
-        callbackURL: "/",
-    })
-    console.log({data , error});
+    const { data, error } = await authClient.signIn.email({
+      email,
+      password,
+      callbackURL: "/",
+    });
+  };
+  const handleGoogle = async () => {
+    const data = await authClient.signIn.social({
+      provider: "google",
+    });
   };
 
   return (
     <Card className="border mx-auto w-125 py-10 mt-5">
-      <h1 className="text-center text-2xl font-bold">Sign Ip</h1>
+      <h1 className="text-center text-2xl font-bold">Sign In</h1>
 
       <Form className="flex w-96 mx-auto flex-col gap-4" onSubmit={onSubmit}>
         <TextField
@@ -82,6 +87,13 @@ export default function SignUpPage() {
           <Button type="reset" variant="secondary">
             Reset
           </Button>
+        </div>
+        <p className="text-center text-2xl">Or</p>
+        <div className="flex justify-center">
+          <Button onClick={handleGoogle} className="w-full" variant="tertiary">
+            <Icon icon="devicon:google" />
+            Sign up with Google
+          </Button>{" "}
         </div>
       </Form>
     </Card>
