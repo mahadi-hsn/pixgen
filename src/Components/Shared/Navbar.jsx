@@ -51,14 +51,16 @@ const Navbar = () => {
             </div>
           ) : user ? (
             <div className="flex items-center gap-3">
+              <Link href={'/update-profile'}>
               <Avatar className="w-7 h-7 flex justify-center items-center">
                 <Avatar.Image
                   alt="John Doe"
                   src={user?.image}
                   referrerPolicy="no-referrer"
-                />
+                  />
                 <Avatar.Fallback>{user.name}</Avatar.Fallback>
               </Avatar>
+                  </Link>
               <Button onClick={handleSingOut} variant="danger-soft">
                 Sign out
               </Button>
