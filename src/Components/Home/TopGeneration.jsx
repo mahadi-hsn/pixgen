@@ -4,7 +4,6 @@ import { Button } from "@heroui/react";
 import Link from "next/link";
 
 const TopGeneration = async () => {
-      'use cache'
 
   const res = await fetch("https://pixgen-plum.vercel.app/data.json", { cache: 'no-cache' });
   const photos = await res.json();

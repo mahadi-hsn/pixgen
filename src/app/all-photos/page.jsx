@@ -2,7 +2,6 @@ import PhotoCard from '@/Components/Home/PhotoCard';
 import React from 'react';
 
 const AllPhotosPage = async () => {
-      'use cache'
     const res = await fetch("https://pixgen-plum.vercel.app/data.json", { cache: 'no-cache' });
     const photos = await res.json()
     return (

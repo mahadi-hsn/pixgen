@@ -21,7 +21,6 @@ export default function SignUpPage() {
     const { data, error } = await authClient.signIn.email({
       email,
       password,
-      callbackURL: "/",
     });
   };
   const handleGoogle = async () => {

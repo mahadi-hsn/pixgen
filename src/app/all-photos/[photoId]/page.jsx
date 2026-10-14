@@ -5,7 +5,6 @@ import Link from "next/link";
 import React from "react";
 
 const PhotoDetailsPage = async ({ params }) => {
-  "use cache";
   const { photoId } = await params;
   const res = await fetch("https://pixgen-plum.vercel.app/data.json", {
     cache: "no-cache",
